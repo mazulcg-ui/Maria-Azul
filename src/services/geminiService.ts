@@ -38,8 +38,9 @@ const invoiceSchema = {
 };
 
 export const verifyInvoice = async (file: File): Promise<VerificationResult> => {
-  // FIX: The API key must be obtained exclusively from `process.env.API_KEY` as per the guidelines.
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const API_KEY = 'AIzaSyAS0XD2h71lm3PxosTwQ-jTlhhG2jn6j-U';
+  
+  const ai = new GoogleGenAI({ apiKey: API_KEY });
 
   const pdfPart = await fileToGenerativePart(file);
 

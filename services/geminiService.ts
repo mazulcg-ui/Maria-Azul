@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import type { InvoiceData, VerificationResult } from "../types";
 
@@ -39,11 +38,9 @@ const invoiceSchema = {
 };
 
 export const verifyInvoice = async (file: File): Promise<VerificationResult> => {
-  if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set. Please configure it.");
-  }
+  const API_KEY = 'AIzaSyAS0XD2h71lm3PxosTwQ-jTlhhG2jn6j-U';
   
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: API_KEY });
 
   const pdfPart = await fileToGenerativePart(file);
 
