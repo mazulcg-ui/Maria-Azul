@@ -1,3 +1,4 @@
+
 export interface InvoiceData {
   companyName: string;
   bankAccountName: string;
@@ -22,11 +23,9 @@ export interface AIStudio {
   openSelectKey: () => Promise<void>;
 }
 
-// Fix: Add global declaration here to avoid conflicts and keep it with the interface.
-// This was causing a conflict due to the duplicated file structure.
-// The global declaration is now handled in the root `types.ts` file.
-// declare global {
-//   interface Window {
-//     aistudio: AIStudio;
-//   }
-// }
+// This is required for the window.aistudio object to be recognized by TypeScript
+declare global {
+  interface Window {
+    aistudio: AIStudio;
+  }
+}

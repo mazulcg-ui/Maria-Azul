@@ -25,4 +25,4 @@ export interface VerificationResult extends InvoiceData {
 
 // The AIStudio type is only used within the `src` directory and its global
 // declaration is correctly located in `src/types.ts`.
-export type { AIStudio } from './src/types';
+// FIX: Removed re-export of AIStudio to resolve global type declaration conflicts.
