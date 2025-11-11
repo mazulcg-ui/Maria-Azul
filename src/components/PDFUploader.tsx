@@ -78,7 +78,7 @@ export default function PDFUploader({ onUpload, loading }: PDFUploaderProps) {
       </div>
 
       <p className="text-xs text-slate-500 dark:text-slate-500 mt-4 text-center">
-        Only PDF files are accepted • Max 10MB
+        Only PDF files are accepted • Max 1GB
       </p>
     </div>
   );
