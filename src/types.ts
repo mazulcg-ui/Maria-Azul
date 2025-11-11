@@ -23,8 +23,10 @@ export interface AIStudio {
 }
 
 // Fix: Add global declaration here to avoid conflicts and keep it with the interface.
-declare global {
-  interface Window {
-    aistudio: AIStudio;
-  }
-}
+// This was causing a conflict due to the duplicated file structure.
+// The global declaration is now handled in the root `types.ts` file.
+// declare global {
+//   interface Window {
+//     aistudio: AIStudio;
+//   }
+// }
