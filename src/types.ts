@@ -8,6 +8,7 @@ export interface InvoiceData {
   recipientName: string;
   recipientAddress: string;
   recipientTaxID: string;
+  hsCode: string;
 }
 
 export interface VerificationResult extends InvoiceData {

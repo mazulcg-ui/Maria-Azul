@@ -83,7 +83,6 @@ export default function VerificationResults({ results }: VerificationResultsProp
             
             <div className="grid md:grid-cols-2 gap-6">
                  <ResultCard>
-                    {/* FIX: Wrapped DataField components in a div for consistent structure and to fix TS error */}
                     <div className="space-y-4">
                         <DataField label="Development Time" value={results.developmentTime} />
                         <DataField label="Payment Terms" value={results.paymentTerms} />
@@ -91,10 +90,10 @@ export default function VerificationResults({ results }: VerificationResultsProp
                 </ResultCard>
 
                 <ResultCard>
-                    {/* FIX: Wrapped DataField components in a div for consistent structure and to fix TS error */}
                     <div className="space-y-4">
                         <DataField label="INCOTERM" value={<span className="text-2xl font-bold text-cyan-700 dark:text-cyan-300">{results.incoterm}</span>} />
                         <DataField label="INCOTERM Details" value={results.incotermDetails} />
+                        <DataField label="HS Code" value={<span className="font-mono text-lg">{results.hsCode}</span>} />
                     </div>
                 </ResultCard>
             </div>

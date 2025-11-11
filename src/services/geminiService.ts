@@ -30,17 +30,16 @@ const invoiceSchema = {
         recipientName: { type: Type.STRING, description: "The name of the recipient/consignee." },
         recipientAddress: { type: Type.STRING, description: "The full address of the recipient." },
         recipientTaxID: { type: Type.STRING, description: "The Tax ID or registration number of the recipient." },
+        hsCode: { type: Type.STRING, description: "The Harmonized System (HS) Code or NCM code for the product(s)." },
     },
      required: [
         "companyName", "bankAccountName", "developmentTime", "paymentTerms", 
-        "incoterm", "incotermDetails", "recipientName", "recipientAddress", "recipientTaxID"
+        "incoterm", "incotermDetails", "recipientName", "recipientAddress", "recipientTaxID", "hsCode"
     ],
 };
 
 export const verifyInvoice = async (file: File): Promise<VerificationResult> => {
-  const API_KEY = 'AIzaSyAS0XD2h71lm3PxosTwQ-jTlhhG2jn6j-U';
-  
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   const pdfPart = await fileToGenerativePart(file);
 
@@ -50,6 +49,7 @@ Important Rules:
 - Extract text exactly as it appears in the document.
 - If the INCOTERM is FOB, incotermDetails should be the port.
 - If the INCOTERM is EXW, incotermDetails should be the pickup address.
+- The HS Code (or NCM code) is a numerical code for customs classification. Extract this code.
 - If any information is not found, return "Not found".`;
   
   const response = await ai.models.generateContent({
@@ -107,5 +107,6 @@ Important Rules:
     recipientAddress: json.recipientAddress || "Not found",
     recipientTaxID: json.recipientTaxID || "Not found",
     recipientMatch,
+    hsCode: json.hsCode || "Not found",
   };
 };
