@@ -1,5 +1,5 @@
 {
-  "name": "Copy of Proforma Invoice Verifier",
+  "name": "Proforma Invoice Verifier",
   "description": "An intelligent web application that allows users to upload PDF proforma invoices. The app uses the Gemini API to analyze the document, extract key information, and automatically verify it against predefined criteria, providing instant feedback on the invoice's validity.",
   "requestFramePermissions": []
 }

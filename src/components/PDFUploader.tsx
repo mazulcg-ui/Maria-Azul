@@ -53,18 +53,15 @@ export default function PDFUploader({ onUpload, loading }: PDFUploaderProps) {
         onDragLeave={(e) => handleDrag(e, false)}
         onDragOver={(e) => handleDrag(e, true)}
         onDrop={handleDrop}
-        className={`relative border-2 border-dashed rounded-xl p-10 sm:p-12 text-center transition-all duration-300 ease-in-out cursor-pointer group ${
+        className={`border-2 border-dashed rounded-xl p-10 sm:p-12 text-center transition-all duration-300 cursor-pointer ${
           isDragging
-            ? "border-solid border-blue-500 bg-blue-50 dark:bg-blue-950/30"
-            : "border-slate-300 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-600"
+            ? "border-blue-500 bg-blue-50 dark:bg-blue-950/30"
+            : "border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600"
         }`}
         onClick={() => !loading && inputRef.current?.click()}
       >
-        {isDragging && (
-           <div className="absolute inset-[-2px] rounded-xl animate-border-glow pointer-events-none"></div>
-        )}
         <div className="flex justify-center mb-4">
-          <div className="p-4 bg-slate-100 dark:bg-slate-800 rounded-full group-hover:scale-110 transition-transform duration-300 ease-in-out">
+          <div className="p-4 bg-blue-100 dark:bg-blue-950/40 rounded-full">
             <UploadIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
           </div>
         </div>
