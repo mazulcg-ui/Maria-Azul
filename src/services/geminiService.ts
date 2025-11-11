@@ -39,7 +39,7 @@ const invoiceSchema = {
 };
 
 export const verifyInvoice = async (file: File): Promise<VerificationResult> => {
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyChz3pgtO9o5GRRbFgX5KymibS_0XpYUww" });
+  const ai = new GoogleGenAI({ apiKey: 'AIzaSyChz3pgtO9o5GRRbFgX5KymibS_0XpYUww' });
 
   const pdfPart = await fileToGenerativePart(file);
 
